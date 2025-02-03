@@ -1,0 +1,30 @@
+---
+import Base from "@layouts/Base.astro";
+import RecentPosts from "@components/RecentPosts.astro";
+---
+
+<Base>
+  <article>
+    <header><h1>yafra</h1></header>
+    <p>
+      Yet Another FRAmework is not a classic framework to be used as template or library but rather 
+      a set of principles to guide the development of a software. It is a minimalistic approach to
+      software development that aims to speed up building sofware with selected libraries and tools.
+    </p>
+
+    <h2>Design principles</h2>
+    <ul>
+      <li>Scale font sizes responsively.</li>
+      <li>Write as little CSS as possible.</li>
+      <li>Use as few classes as possible.</li>
+      <li>Maximize the use of semantic HTML.</li>
+      <li>Limit the number of installed NPM packages.</li>
+      <li>Avoid anything that would go beyond static HTML.</li>
+      <li>Don't go beyond basic Markdown.</li>
+      <li>Don't just reinvent BearBlog.</li>
+    </ul>
+    <p>If that sounds good to you, this theme might be for you!</p>
+  </article>
+  <hr />
+  <RecentPosts />
+</Base>
