@@ -12,15 +12,12 @@ const { title, pubDate, tags } = Astro.props;
   <header>
     <h1>{title}</h1>
     <FormattedDate date={pubDate} />
+    {
+      tags && (
+          <TagList tags={tags} />
+      )
+    }
   </header>
   <slot />
 
-  {
-    tags && (
-      <footer>
-        <h4>Tags</h4>
-        <TagList tags={tags} />
-      </footer>
-    )
-  }
 </article>

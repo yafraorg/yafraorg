@@ -17,7 +17,7 @@ export const siteConfig: Config = {
   title: "yafra.org",
   description: "best practices for software development",
   lang: "en",
-  favicon: "/favicon.svg",
+  favicon: "/favicon.ico",
   og: {
     image: "/ogImage.png",
     imageAlt: "Open Graph image for yafra.org",
