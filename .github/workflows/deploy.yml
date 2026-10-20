@@ -81,6 +81,6 @@ jobs:
           set net:timeout 20
           set sftp:auto-confirm no
           set sftp:connect-program "ssh -a -x $ssh_opts"
-          mirror --reverse --delete --verbose dist/ www/yafrorg/
+          mirror --reverse --delete --verbose dist/ www/yafraorg/
           bye
           LFTP
