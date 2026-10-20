@@ -8,7 +8,7 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(siteConfig.og.image, Astro.url);
+const socialImageURL = new URL(siteConfig.og.image, Astro.site);
 
 const {
   title,
@@ -21,7 +21,10 @@ const {
   {/* Global Metadata */}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href={siteConfig.favicon} />
+  <link rel="icon" href={siteConfig.favicon} sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content={siteConfig.themeColor} />
   <meta name="generator" content={Astro.generator} />
   <link rel="canonical" href={canonicalURL} />
   {/* Primary Meta Tags */}
@@ -32,12 +35,13 @@ const {
   <link
     rel="alternate"
     type="application/rss+xml"
-    title={title}
+    title={siteConfig.title}
     href={new URL("rss.xml", Astro.site)}
   />
   {/* Open Graph */}
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:type" content={ogType} />
+  <meta property="og:locale" content="en" />
   <meta property="og:site_name" content={siteConfig.title} />
   <meta property="og:description" content={description} />
   <meta property="og:title" content={title} />

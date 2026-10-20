@@ -22,39 +22,28 @@ posts.forEach((post) => {
 });
 ---
 
-<Base title="Blog" description="yafra articels">
-  <article>
-    <header>
-      <hgroup>
+<Base title="Blog" description="Articles from yafra.org">
+  <div class="container py-5">
+    <article class="card prose">
+      <header class="mb-4">
         <h1>Blog</h1>
-        <p>Articels from yafra.org</p>
-      </hgroup>
-    </header>
-    {
-      Object.keys(postByYear)
+        <p class="lead mb-0">Articles from yafra.org</p>
+      </header>
+      {Object.keys(postByYear)
         .sort((a, b) => parseInt(b) - parseInt(a))
         .map((year) => (
           <section id={year}>
             <h2>{year}</h2>
-            <ul>
-              {postByYear[parseInt(year)].map((post: Post) => (
-                <li>
-                  <span>
-                    <FormattedDate date={post.data.pubDate} />
-                  </span>
-                  &#8195;
-                  <a href={`/blog/${post.id}`} class="contrast">{post.data.title}</a>
+            <ul class="list-group post-list">
+              {postByYear[parseInt(year)]?.map((post: Post) => (
+                <li class="list-group-item">
+                  <FormattedDate date={post.data.pubDate} />
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
                 </li>
               ))}
             </ul>
           </section>
-        ))
-    }
-  </article>
+        ))}
+    </article>
+  </div>
 </Base>
-<style>
-  span{
-    display:inline-block;
-    min-width: 10ch;
-  }
-</style>

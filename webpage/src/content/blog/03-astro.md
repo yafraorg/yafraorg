@@ -23,7 +23,6 @@ npm run dev
 npm run build
 ```
 
-
 4. Optionally, format your source files with Prettier.
 
 ```shell
@@ -31,4 +30,3 @@ npm run format
 ```
 
 If you use mise-en-place for your tooling, this project comes with a mise configuration file.
-

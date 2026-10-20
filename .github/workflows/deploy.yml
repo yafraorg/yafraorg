@@ -1,0 +1,86 @@
+name: Deploy to Hostpoint
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostpoint-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment: production
+    timeout-minutes: 20
+    # yafraorg: the Astro site lives in webpage/; the shared Jump Bit theme is read from ../assets.
+    defaults:
+      run:
+        working-directory: webpage
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: webpage/.nvmrc
+          cache: npm
+          cache-dependency-path: webpage/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Build website
+        run: npm run build
+
+      - name: Install SFTP client
+        run: sudo -n apt-get update && sudo -n apt-get install --yes lftp
+
+      - name: Replace website over SFTP
+        shell: bash
+        env:
+          HOSTPOINT_HOST: ${{ secrets.HOSTPOINT_HOST }}
+          HOSTPOINT_USERNAME: ${{ secrets.HOSTPOINT_USERNAME }}
+          HOSTPOINT_PRIVATE_KEY: ${{ secrets.HOSTPOINT_PRIVATE_KEY }}
+          HOSTPOINT_KNOWN_HOSTS: ${{ secrets.HOSTPOINT_KNOWN_HOSTS }}
+        run: |
+          set -Eeuo pipefail
+          : "${HOSTPOINT_HOST:?Missing HOSTPOINT_HOST secret}"
+          : "${HOSTPOINT_USERNAME:?Missing HOSTPOINT_USERNAME secret}"
+          : "${HOSTPOINT_PRIVATE_KEY:?Missing HOSTPOINT_PRIVATE_KEY secret}"
+          : "${HOSTPOINT_KNOWN_HOSTS:?Missing HOSTPOINT_KNOWN_HOSTS secret}"
+          [[ "$HOSTPOINT_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]]
+          [[ -s dist/index.html && -s dist/404.html ]]
+          umask 077
+          mkdir -p "$HOME/.ssh"
+          key="$HOME/.ssh/hostpoint_deploy"
+          trap 'rm -f -- "$key"' EXIT
+          printf '%s\n' "$HOSTPOINT_PRIVATE_KEY" > "$key"
+          chmod 600 "$key"
+          ssh-keygen -y -P '' -f "$key" > /dev/null
+          printf '%s\n' "$HOSTPOINT_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          ssh_opts="-i $key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes"
+          # Plain sftp first: it prints the real ssh error, which lftp hides behind "max-retries exceeded".
+          # shellcheck disable=SC2086 # ssh_opts is intentionally word-split
+          printf 'pwd\n' | sftp -b - $ssh_opts "$HOSTPOINT_USERNAME@$HOSTPOINT_HOST"
+          # mirror creates www/yafrorg if missing and --delete removes stale files, so no mkdir/rm is needed
+          # (lftp's "mkdir -p" fails on an existing directory, which aborts the script under cmd:fail-exit).
+          lftp -u "$HOSTPOINT_USERNAME," "sftp://$HOSTPOINT_HOST" <<LFTP
+          set cmd:fail-exit yes
+          set net:max-retries 2
+          set net:timeout 20
+          set sftp:auto-confirm no
+          set sftp:connect-program "ssh -a -x $ssh_opts"
+          mirror --reverse --delete --verbose dist/ www/yafrorg/
+          bye
+          LFTP

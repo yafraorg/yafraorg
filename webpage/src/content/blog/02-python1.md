@@ -9,4 +9,5 @@ tags:
 ---
 
 # Simple python samples
+
 Showing the usage of some of the preferred libraries.

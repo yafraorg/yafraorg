@@ -1,88 +1,54 @@
-# smallworld
+# yafra.org website
 
-_This is a template for the static site generator [Astro](https://astro.build/)._
+Static website for [yafra.org](https://yafra.org), built with [Astro](https://astro.build) 7. English only.
 
-I like Astro, but I don't like spending hours messing with customizations I don't need. This template is based on a few key principles for my own site:
+## Design
 
-- I wanted a basic website with a single-author blog.
-- The website should incorporate accessible and usable elements.
-- Complex systems should be avoided in favor of simpler ones.
-- I should be able to easily understand what I see.
+The site uses the Jump Bit design system with green as its key colour:
 
-The result is an Astro template that heavily limits the use of CSS classes, and maximizes the use of semantic HTML.
+1. `../assets/jumpbit-theme.css` and `../assets/jumpbit-ui.css`: the shared Jump Bit theme, tokens, Inter font and Bootstrap-like components. Keep these files unchanged; update them from the Jump Bit source.
+2. `src/styles/yafra-theme.css`: the yafra.org extension. It only overrides semantic tokens (`--color-primary`, `--color-link`, `--color-focus`, `--color-accent`, `--gradient-brand`) with the yafra greens and adds the site-specific parts (hero, post text, tags).
 
-## Quickstart
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `--yf-green` | `#00895a` | – | brand green, display text 24px+ |
+| `--yf-green-dark` | `#00754c` | – | buttons, links, focus on light (5.8:1 on white) |
+| `--yf-green-light` | – | `#4cc38a` | buttons, links, focus on dark (8.0:1 on ink) |
 
-```shell
-npm create astro@latest -- --template anaxite/astro-smallworld
-cd astro-smallworld
-npm run dev
-npm run build
-```
+Layout and components use the Jump Bit classes (`.container`, `.row`, `.col-md-*`, `.card`, `.btn`, `.badge`, `.list-group`, …). Don't add another CSS framework.
 
-## Less quick start
+## Prerequisites
 
-### Install
+- Node.js 24 LTS (pinned in `.nvmrc` and `mise.toml`)
+- npm 11
 
-1. Install Astro.
+## Tasks
 
-```shell
-npm create astro@latest -- --template anaxite/astro-smallworld
-```
+Run from this folder:
 
-2. Install this template's dependencies, if you didn't already.
+| Task | Command |
+| --- | --- |
+| Setup | `npm ci` |
+| Run (dev server) | `npm run dev` |
+| Type check | `npm run check` |
+| Build (`dist/`) | `npm run build` |
+| Preview the build | `npm run preview` |
+| Format | `npm run format` |
+| Format check (CI) | `npm run format:check` |
 
-```shell
-cd <install-directory>
-npm install
-```
+## Content
 
-3. Run the template in preview mode, or build the final output.
+- Pages: `.astro` files in `src/pages`, wrapped in the `Base` layout. Start from `src/templates/page.astro`.
+- Blog posts: Markdown files in `src/content/blog` with `title`, `description`, `pubDate` and optional `tags` front matter. Start from `src/templates/post.md`.
+- Navigation: `src/components/PageHeader.astro`. Site title, tagline and Open Graph settings: `src/settings.ts`.
 
-```shell
-npm run dev
-npm run build
-```
+## Deployment
 
-4. Optionally, format your source files with Prettier.
+`.github/workflows/deploy.yml` (the Jump Bit Hostpoint pipeline, adapted for `webpage/`) runs on every pushed tag: `npm ci`, format check, build, then mirrors `dist/` to Hostpoint over SFTP.
 
-```shell
-npm run format
-```
+TODO: set up the GitHub `production` environment with these secrets:
 
-If you use mise-en-place for your tooling, this project comes with a mise configuration file.
-
-### Configure site settings
-
-Site-wide settings are stored in `src/settings.ts`. This is also where you can set the favicon file name, and Open Graph image settings.
-
-### Configure CSS
-
-The file `src/styles/main.scss` controls which CSS elements Pico CSS includes in the final site. See [the Pico CSS website](https://picocss.com/docs/sass) for information about these elements. 
-
-> Building your project may show deprecation warnings due to how Pico CSS writes its SASS files. These warnings are non-fatal and can be ignored for now.. 
-
-### Add and edit pages
-
-Create your static pages as `.astro` files under `src/pages`. The template includes an index page with the most recent blog posts, an About page, and a 404 page.
-
-Use the Base layout to wrap your content in semantically-correct `<main>` tags. The Base layout also takes `title` and `description` attributes that supplement the main site title and description. If you want your content to have a nice border, I recommend you wrap it in `<article>` tags to benefit from Pico CSS styling.
-
-To start with a basic page template, see the file in `src/templates`.
-
-### Navigation
-
-To add a page to the site navigation, edit the `PageHeader.astro` component directly.
-
-### Blog
-
-smallworld comes with a blog collection by default. To add a new post, create a Markdown file in the `src/content/blog` directory or one of its subdirectories. The path and file name becomes the post URL.
-
-A post must have `title`, `description` and `pubDate` keywords in its frontmatter. `tags` are optional.
-
-To see a post template, see the file in `src/templates`.
-
-
-## About Astro
-
-Want to learn more about Astro? Check out [their documentation](https://docs.astro.build) or jump into their [Discord server](https://astro.build/chat).
+- `HOSTPOINT_HOST`
+- `HOSTPOINT_USERNAME`
+- `HOSTPOINT_PRIVATE_KEY` (deploy key without passphrase)
+- `HOSTPOINT_KNOWN_HOSTS` (output of `ssh-keyscan <host>`)

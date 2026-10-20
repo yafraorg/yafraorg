@@ -2,9 +2,22 @@
 import Base from "@layouts/Base.astro";
 ---
 
-<Base title="About" , description="Yet Another FRAmework">
-  <article>
-    <header><h1>About yafra</h1></header>
-    <p>Yafra content is open source and hosted on <a href="https://github.com/yafraorg">github: yafraorg</a>.</p>
-  </article>
+<Base title="About" description="Yet Another FRAmework">
+  <div class="container py-5">
+    <article class="card prose">
+      <h1>About yafra</h1>
+      <p>
+        yafra stands for <strong>Y</strong>et&nbsp;<strong>A</strong>
+        nother&nbsp;<strong>FRA</strong>mework: a set of principles, libraries
+        and tools for building software quickly and simply.
+      </p>
+      <p>
+        All yafra content is open source and hosted on GitHub at{" "}
+        <a href="https://github.com/yafraorg">github.com/yafraorg</a>.
+      </p>
+      <p class="mb-0">
+        Contact: <a href="mailto:info@yafra.org">info@yafra.org</a>
+      </p>
+    </article>
+  </div>
 </Base>

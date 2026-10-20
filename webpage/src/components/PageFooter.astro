@@ -2,18 +2,11 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <p>&copy; 2004-{currentYear} info@yafra.org</p>
-  <nav>    <ul>
-    <li><a href="https://github.com/yafraorg/yafraorg">GitHub</a></li>
-    {/* Add other navbar entries here */}
-  </ul>
-</nav>
+<footer class="site-footer container py-3 d-flex flex-wrap justify-content-between gap-2 small text-muted">
+  <span>&copy; 2004–{currentYear} yafra.org. All rights reserved.</span>
+  <span class="d-flex flex-wrap gap-3">
+    <a href="mailto:info@yafra.org">info@yafra.org</a>
+    <a href="https://github.com/yafraorg/yafraorg">GitHub</a>
+    <a href="/rss.xml">RSS</a>
+  </span>
 </footer>
-{/* CSS required to keep footer at the bottom of the page */}
-<style>
-  footer {
-    position: sticky;
-    top: 100vh;
-  }
-</style>

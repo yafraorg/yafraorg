@@ -9,23 +9,22 @@ const maxPostsToDisplay = 3;
 const recentPosts = posts.slice(0, maxPostsToDisplay);
 ---
 
-<section>
-  <h3>Recent posts</h3>
-    <div class="grid">
-    {
-      recentPosts.map((post) => (
-        <article>
-          <hgroup>
-            <h3>
-              <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            </h3>
-            <p>
-              <FormattedDate date={post.data.pubDate} />
-            </p>
-          </hgroup>
-          <p>{post.data.description}</p>
-        </article>
-      ))
-    }
+<section class="mt-5" aria-labelledby="recent-posts">
+  <h2 id="recent-posts">Recent posts</h2>
+  <div class="row">
+    {recentPosts.map((post) => (
+      <article class="card col-md-4">
+        <h3 class="card-title">
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+        </h3>
+        <p class="small text-muted mb-2">
+          <FormattedDate date={post.data.pubDate} />
+        </p>
+        <p class="card-text">{post.data.description}</p>
+      </article>
+    ))}
   </div>
+  <p class="mt-4 mb-0">
+    <a href="/blog">All posts</a>
+  </p>
 </section>

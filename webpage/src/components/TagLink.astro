@@ -1,5 +1,11 @@
 ---
+interface Props {
+  tag: string;
+}
+
 const { tag } = Astro.props;
 ---
 
-<a href={`/tags/${tag}`} class="secondary">#{tag}</a>
+<a href={`/tags/${tag}`} class="badge">
+  #{tag}
+</a>

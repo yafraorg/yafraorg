@@ -1,5 +1,8 @@
 ---
-import "@styles/main.scss";
+// Jump Bit design system (shared, unchanged) followed by the yafra.org green extension.
+import "../../../assets/jumpbit-theme.css";
+import "../../../assets/jumpbit-ui.css";
+import "@styles/yafra-theme.css";
 import { siteConfig } from "~/settings";
 
 import PageHead from "@components/PageHead.astro";
@@ -16,13 +19,13 @@ const { title, description, ogType = "website" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={siteConfig.lang}>
   <PageHead
     title={title ? `${title} | ${siteConfig.title}` : siteConfig.title}
     description={description ? description : siteConfig.description}
     ogType={ogType}
   />
-  <body class="container">
+  <body>
     <PageHeader />
     <main>
       <slot />
@@ -30,9 +33,3 @@ const { title, description, ogType = "website" } = Astro.props;
     <PageFooter />
   </body>
 </html>
-{/* CSS required to keep footer at the bottom of the page */}
-<style>
-  .container {
-    height: 100vh;
-  }
-</style>
