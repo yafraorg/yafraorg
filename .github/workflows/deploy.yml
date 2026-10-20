@@ -73,7 +73,7 @@ jobs:
           # Plain sftp first: it prints the real ssh error, which lftp hides behind "max-retries exceeded".
           # shellcheck disable=SC2086 # ssh_opts is intentionally word-split
           printf 'pwd\n' | sftp -b - $ssh_opts "$HOSTPOINT_USERNAME@$HOSTPOINT_HOST"
-          # mirror creates www/yafrorg if missing and --delete removes stale files, so no mkdir/rm is needed
+          # mirror creates www/yafraorg if missing and --delete removes stale files, so no mkdir/rm is needed
           # (lftp's "mkdir -p" fails on an existing directory, which aborts the script under cmd:fail-exit).
           lftp -u "$HOSTPOINT_USERNAME," "sftp://$HOSTPOINT_HOST" <<LFTP
           set cmd:fail-exit yes
