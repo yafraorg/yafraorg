@@ -21,13 +21,13 @@ A set of useful libraries to create server, frontends or API's. Main guidelines 
 
 NodeJS is an efficient way to develop and run applications. It is used as development environment to build modern UI's / frontends. You will find some key frameworks here or in the [nodeJS instruction](.github/instructions/nodejs.instructions.md).
 
-| Framework  | Link                                       | Language        | Usage          | Overview                                        |
-| ---------- | ------------------------------------------ | --------------- | -------------- | ----------------------------------------------- |
-| Astro      | https://astro.build                        | Typescript      | Web pages      | Static web page generation                      |
-| Alpine.js  | https://alpinejs.dev                       | Typescript      | SPA            | Simple UI                                       |
-| Angular    | https://angular.dev                        | Typescript      | SPA            | Enterprise UI Framework                         |
+| Framework | Link                 | Language   | Usage     | Overview                   |
+| --------- | -------------------- | ---------- | --------- | -------------------------- |
+| Astro     | https://astro.build  | Typescript | Web pages | Static web page generation |
+| Alpine.js | https://alpinejs.dev | Typescript | SPA       | Simple UI                  |
+| Angular   | https://angular.dev  | Typescript | SPA       | Enterprise UI Framework    |
 
-*SPA means Single Page Application*
+_SPA means Single Page Application_
 
 It is convinient to use a manager software to switch between the nodejs versions. [fnm](https://github.com/schniz/fnm) is recommended.
 
@@ -35,28 +35,27 @@ It is convinient to use a manager software to switch between the nodejs versions
 
 Python is an easy to learn and extremly versatile programming language. It can be used for analytics, creating applications and simple UI's / frontends. You will find further information in the [python instruction](.github/instructions/python.instructions.md).
 
-| Framework  | Link                                       | Language        | Usage          | Overview                                        |
-| ---------- | ------------------------------------------ | --------------- | -------------- | ----------------------------------------------- |
-| FastAPI    | https://fastapi.tiangolo.com               | Python          | Backend API    | RESTful API, GraphQL, ORM SQLAlchemy, ..        |
-| PySide     | https://doc.qt.io/qtforpython-6/index.html | Python          | Fat Clients    | MacOS, Linux, Windows based on Qt               |
-| Rich       | https://github.com/Textualize/rich         | Python          | CLI            | ASCII UI                                        |
+| Framework | Link                                       | Language | Usage       | Overview                                 |
+| --------- | ------------------------------------------ | -------- | ----------- | ---------------------------------------- |
+| FastAPI   | https://fastapi.tiangolo.com               | Python   | Backend API | RESTful API, GraphQL, ORM SQLAlchemy, .. |
+| PySide    | https://doc.qt.io/qtforpython-6/index.html | Python   | Fat Clients | MacOS, Linux, Windows based on Qt        |
+| Rich      | https://github.com/Textualize/rich         | Python   | CLI         | ASCII UI                                 |
 
 It is convinient to use a manager software to switch between the python versions. [uv](https://github.com/astral-sh/uv) is recommended.
 
 ### .Net / C#
 
-| Framework  | Link                                       | Language        | Usage          | Overview                                        |
-| ---------- | ------------------------------------------ | --------------- | -------------- | ----------------------------------------------- |
-| .NET Core  | https://dotnet.microsoft.com               | C#              | Backend API    | RESTful API, ORM                                |
-| Avalonia UI | https://dotnet.microsoft.com              | C#              | Backend API    | RESTful API, ORM                                |
-
+| Framework   | Link                         | Language | Usage       | Overview         |
+| ----------- | ---------------------------- | -------- | ----------- | ---------------- |
+| .NET Core   | https://dotnet.microsoft.com | C#       | Backend API | RESTful API, ORM |
+| Avalonia UI | https://dotnet.microsoft.com | C#       | Backend API | RESTful API, ORM |
 
 ### Embedded and Home devices
 
-| Framework  | Link                                       | Language        | Usage          | Overview                                        |
-| ---------- | ------------------------------------------ | --------------- | -------------- | ----------------------------------------------- |
-| Arduino    | https://github.com/arduino/arduino-cli     | C/C++           | Board          | Programming Arduino Boards / M5                 |
-| NRF        | https://github.com/NordicSemiconductor     | C               | Board          | Nordic Semiconductor Boards                     |
+| Framework | Link                                   | Language | Usage | Overview                        |
+| --------- | -------------------------------------- | -------- | ----- | ------------------------------- |
+| Arduino   | https://github.com/arduino/arduino-cli | C/C++    | Board | Programming Arduino Boards / M5 |
+| NRF       | https://github.com/NordicSemiconductor | C        | Board | Nordic Semiconductor Boards     |
 
 ## Recommended databases
 
