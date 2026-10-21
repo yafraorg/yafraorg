@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Blog post "Jump Bit design principles" with the Jump Bit UI example embedded.
+- Jump Bit UI example page at `/jumpbit-ui/`, showing the plain design system without the yafra green.
+
 ### Changed
 
 - Restyle the website with the Jump Bit design system, extended with green as the yafra key colour (`webpage/src/styles/yafra-theme.css`).
