@@ -15,11 +15,11 @@ For all cases there are a bunch of samples in the yafra repositories. They are d
 
 ## Recommended development kits
 
-A set of useful libraries to create server, frontends or API's. Main guidelines are documented as [instructions](.github/copilot-instructions.md), which can be used by AI.
+A set of useful libraries to create server, frontends or API's. Main guidelines are documented as [instructions](/devdoc/copilot-instructions/), which can be used by AI.
 
 ### NodeJS
 
-NodeJS is an efficient way to develop and run applications. It is used as development environment to build modern UI's / frontends. You will find some key frameworks here or in the [nodeJS instruction](.github/instructions/nodejs.instructions.md).
+NodeJS is an efficient way to develop and run applications. It is used as development environment to build modern UI's / frontends. You will find some key frameworks here or in the [nodeJS instruction](/devdoc/instructions/nodejs-instructions/).
 
 | Framework | Link                 | Language   | Usage     | Overview                   |
 | --------- | -------------------- | ---------- | --------- | -------------------------- |
@@ -33,7 +33,7 @@ It is convinient to use a manager software to switch between the nodejs versions
 
 ### Python
 
-Python is an easy to learn and extremly versatile programming language. It can be used for analytics, creating applications and simple UI's / frontends. You will find further information in the [python instruction](.github/instructions/python.instructions.md).
+Python is an easy to learn and extremly versatile programming language. It can be used for analytics, creating applications and simple UI's / frontends. You will find further information in the [python instruction](/devdoc/instructions/python-instructions/).
 
 | Framework | Link                                       | Language | Usage       | Overview                                 |
 | --------- | ------------------------------------------ | -------- | ----------- | ---------------------------------------- |
@@ -71,7 +71,7 @@ SQLlite is preferred for local and simple setups. You do not even need a server 
 
 ## Recommended AI frameworks
 
-In order to use the latest llm's from https://huggingface.co/ use one of these AI toolsets to test them but as well to integrate them into your code.
+In order to use the latest llm's from https://huggingface.com/ use one of these AI toolsets to test them but as well to integrate them into your code.
 
 | AI toolset | Link                | Language | Usage                                                             |
 | ---------- | ------------------- | -------- | ----------------------------------------------------------------- |

@@ -5,56 +5,60 @@ import { siteConfig } from "~/settings";
 ---
 
 <Base>
-  <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">{siteConfig.title}</h1>
-    <p class="tagline">{siteConfig.tagline}</p>
-    <p class="lead">
-      Not a framework you install, but a set of principles, curated libraries
-      and tools that speed up building software.
-    </p>
-    <div class="d-flex flex-wrap justify-content-center gap-2">
-      <a class="btn" href="/tags/intro">
-        Get started
-      </a>
-      <a class="btn btn-outline" href="https://github.com/yafraorg">
-        GitHub
-      </a>
-    </div>
-  </section>
+   <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">{siteConfig.title}</h1>
+      <p class="tagline">{siteConfig.tagline}</p>
+      <p class="lead">
+         Not a framework you install, but a set of principles, curated libraries
+         and tools that speed up building software.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+         <a class="btn" href="/tags/intro">
+            Get started
+         </a>
+         <a class="btn btn-outline" href="https://github.com/yafraorg">
+            GitHub
+         </a>
+      </div>
+   </section>
 
-  <div class="container py-5 stack">
-    <div class="row">
-      <section class="card col-md-4">
-        <h2 class="card-title">Principles</h2>
-        <p class="card-text">
-          <strong>Y</strong>et&nbsp;<strong>A</strong>nother&nbsp;
-          <strong>FRA</strong>mework is a minimalistic approach to software
-          development: a small set of selected libraries and tools instead of a
-          template or library.
-        </p>
-      </section>
-      <section class="card col-md-4">
-        <h2 class="card-title">Getting started</h2>
-        <p class="card-text">
-          Read through the curated set of libraries and development tools first.
-          LLMs speed up the rest, from code and tests to documentation.
-        </p>
-        <a class="btn btn-sm btn-outline" href="/tags/intro">
-          Toolset posts
-        </a>
-      </section>
-      <section class="card col-md-4">
-        <h2 class="card-title">GitHub repositories</h2>
-        <p class="card-text">
-          The yafraorg organisation on GitHub holds the samples and repositories
-          that go with the posts.
-        </p>
-        <a class="btn btn-sm btn-outline" href="https://github.com/yafraorg">
-          github.com/yafraorg
-        </a>
-      </section>
-    </div>
+   <div class="container py-5 stack">
+      <div class="row">
+         <section class="card col-md-4">
+            <h2 class="card-title">Principles</h2>
+            <p class="card-text">
+               <strong>Y</strong>et&nbsp;<strong>A</strong>nother&nbsp;
+               <strong>FRA</strong>mework is a minimalistic approach to software
+               development: a small set of selected libraries and tools instead
+               of a template or library.
+            </p>
+         </section>
+         <section class="card col-md-4">
+            <h2 class="card-title">Getting started</h2>
+            <p class="card-text">
+               Read through the curated set of libraries and development tools
+               first. LLMs speed up the rest, from code and tests to
+               documentation.
+            </p>
+            <a class="btn btn-sm btn-outline" href="/tags/intro">
+               Toolset posts
+            </a>
+         </section>
+         <section class="card col-md-4">
+            <h2 class="card-title">GitHub repositories</h2>
+            <p class="card-text">
+               The yafraorg organisation on GitHub holds the samples and
+               repositories that go with the posts.
+            </p>
+            <a
+               class="btn btn-sm btn-outline"
+               href="https://github.com/yafraorg"
+            >
+               github.com/yafraorg
+            </a>
+         </section>
+      </div>
 
-    <RecentPosts />
-  </div>
+      <RecentPosts />
+   </div>
 </Base>

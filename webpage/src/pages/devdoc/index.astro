@@ -1,0 +1,51 @@
+---
+// Overview of the development guidelines from .github/.
+import { getCollection, render } from "astro:content";
+import Base from "@layouts/Base.astro";
+
+const docs = await Promise.all(
+   (await getCollection("devdoc")).map(async (doc) => {
+      const { headings } = await render(doc);
+      return { id: doc.id, title: headings[0]?.text ?? doc.id };
+   }),
+);
+// The general guidelines first, then the language-specific files alphabetically.
+const [general, specific] = [
+   docs.filter((doc) => !doc.id.startsWith("instructions/")),
+   docs
+      .filter((doc) => doc.id.startsWith("instructions/"))
+      .sort((a, b) => a.title.localeCompare(b.title)),
+];
+---
+
+<Base
+   title="Development guidelines"
+   description="Development guidelines used across yafra.org repositories"
+>
+   <div class="container py-5">
+      <article class="card prose">
+         <header class="mb-4">
+            <h1>Development guidelines</h1>
+            <p class="lead mb-0">
+               The rules every yafra.org repository follows, also used as GitHub
+               Copilot and Claude instructions.
+            </p>
+         </header>
+         <ul class="list-group post-list">
+            {general.map((doc) => (
+               <li class="list-group-item">
+                  <a href={`/devdoc/${doc.id}`}>{doc.title}</a>
+               </li>
+            ))}
+         </ul>
+         <h2>Language and tool specific</h2>
+         <ul class="list-group post-list">
+            {specific.map((doc) => (
+               <li class="list-group-item">
+                  <a href={`/devdoc/${doc.id}`}>{doc.title}</a>
+               </li>
+            ))}
+         </ul>
+      </article>
+   </div>
+</Base>

@@ -40,6 +40,7 @@ Run from this folder:
 
 - Pages: `.astro` files in `src/pages`, wrapped in the `Base` layout. Start from `src/templates/page.astro`.
 - Blog posts: Markdown files in `src/content/blog` with `title`, `description`, `pubDate` and optional `tags` front matter. Start from `src/templates/post.md`.
+- Development guidelines: `/devdoc/` renders `../.github/copilot-instructions.md` and `../.github/instructions/*.md` directly (collection `devdoc` in `src/content.config.ts`); edit them there.
 - Navigation: `src/components/PageHeader.astro`. Site title, tagline and Open Graph settings: `src/settings.ts`.
 
 ## Deployment

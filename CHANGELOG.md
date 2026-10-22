@@ -7,8 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Blog post "Jump Bit design principles" with the Jump Bit UI example embedded.
-- Jump Bit UI example page at `/jumpbit-ui/`, showing the plain design system without the yafra green.
+- Development guidelines pages at `/devdoc/`, rendered from `.github/copilot-instructions.md` and `.github/instructions/*.md`.
 
 ### Changed
 

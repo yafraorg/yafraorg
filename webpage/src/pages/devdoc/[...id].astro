@@ -1,0 +1,34 @@
+---
+// One page per development guideline from .github/ (see the devdoc collection).
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Base from "@layouts/Base.astro";
+import { rewriteDevdocLinks } from "~/devdoc";
+
+export async function getStaticPaths() {
+   const docs = await getCollection("devdoc");
+   return docs.map((doc) => ({ params: { id: doc.id }, props: doc }));
+}
+type Props = CollectionEntry<"devdoc">;
+
+const doc = Astro.props;
+const { headings } = await render(doc);
+// Rendered from our own .github/ files, so the HTML is trusted; only the .md links change.
+const html = rewriteDevdocLinks(doc.rendered?.html ?? "", doc.id);
+const title = headings[0]?.text ?? doc.id;
+---
+
+<Base title={title} description={`Development guideline: ${title}`}>
+   <div class="container py-5">
+      <article class="card prose">
+         <p class="mb-4">
+            <a href="/devdoc">← All guidelines</a>
+         </p>
+         {doc.data.applyTo && (
+            <p>
+               Applies to <code>{doc.data.applyTo}</code>
+            </p>
+         )}
+         <Fragment set:html={html} />
+      </article>
+   </div>
+</Base>
