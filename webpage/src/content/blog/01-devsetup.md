@@ -23,7 +23,7 @@ NodeJS is an efficient way to develop and run applications. It is used as develo
 
 | Framework | Link                 | Language   | Usage     | Overview                   |
 | --------- | -------------------- | ---------- | --------- | -------------------------- |
-| NodeJS    | https://nodejs.org   | Javascript | Runtime   |  |
+| NodeJS    | https://nodejs.org   | Javascript | Runtime   |                            |
 | Astro     | https://astro.build  | Typescript | Web pages | Static web page generation |
 | Alpine.js | https://alpinejs.dev | Typescript | SPA       | Simple UI                  |
 | Angular   | https://angular.dev  | Typescript | SPA       | Enterprise UI Framework    |
@@ -36,11 +36,11 @@ It is convinient to use a manager software to switch between the nodejs versions
 
 Python is an easy to learn and extremly versatile programming language. It can be used for analytics, creating applications and simple UI's / frontends. You will find further information in the [python instruction](/devdoc/instructions/python-instructions/).
 
-| Framework | Link                                       | Language | Usage       | Overview                                 |
-| --------- | ------------------------------------------ | -------- | ----------- | ---------------------------------------- |
-| Python    | https://www.python.org                     | Python   | Runtime     |  |
-| FastAPI   | https://fastapi.tiangolo.com               | Python   | Backend API | RESTful API, GraphQL, ORM SQLAlchemy, .. |
-| Rich      | https://github.com/Textualize/rich         | Python   | CLI         | ASCII UI                                 |
+| Framework | Link                               | Language | Usage       | Overview                                 |
+| --------- | ---------------------------------- | -------- | ----------- | ---------------------------------------- |
+| Python    | https://www.python.org             | Python   | Runtime     |                                          |
+| FastAPI   | https://fastapi.tiangolo.com       | Python   | Backend API | RESTful API, GraphQL, ORM SQLAlchemy, .. |
+| Rich      | https://github.com/Textualize/rich | Python   | CLI         | ASCII UI                                 |
 
 It is convinient to use a manager software to switch between the python versions. [uv](https://github.com/astral-sh/uv) is recommended.
 
@@ -50,7 +50,7 @@ Dotnet is highly efficient and best for enterprise grade server-side and client-
 
 | Framework   | Link                         | Language | Usage       | Overview         |
 | ----------- | ---------------------------- | -------- | ----------- | ---------------- |
-| .NET Core   | https://dotnet.microsoft.com | C#       | Runtime     |  |
+| .NET Core   | https://dotnet.microsoft.com | C#       | Runtime     |                  |
 | Avalonia UI | https://dotnet.microsoft.com | C#       | Backend API | RESTful API, ORM |
 
 ### Embedded and Home devices
@@ -64,11 +64,11 @@ Dotnet is highly efficient and best for enterprise grade server-side and client-
 
 SQLlite is preferred for local and simple setups. You do not even need a server :-) Large data storage is done on cloud like Azure Datalake. Run the databases within dockers during development or on the cloud.
 
-| Database       | Link                                                  | Language | Usage                                   |
-| -------------- | ----------------------------------------------------- | -------- | --------------------------------------- |
-| MariaDB        | https://mariadb.org                                   | all      | Transactional data and queries, SQL     |
-| SQLlite        | https://www.sqlite.org                                | all      | Small and in-memory database, SQL       |
-| Redis          | https://redis.io                                      | all      | In-Memory, speed in mind, NO-SQL        |
+| Database | Link                   | Language | Usage                               |
+| -------- | ---------------------- | -------- | ----------------------------------- |
+| MariaDB  | https://mariadb.org    | all      | Transactional data and queries, SQL |
+| SQLlite  | https://www.sqlite.org | all      | Small and in-memory database, SQL   |
+| Redis    | https://redis.io       | all      | In-Memory, speed in mind, NO-SQL    |
 
 ## Recommended AI frameworks
 
@@ -83,9 +83,9 @@ In order to use the latest llm's from https://huggingface.com/ use one of these 
 
 To store sensor or machine data the MQTT protocol is preferred.
 
-| Cloud Service   | Link                                               | Language | Usage                                   |
-| --------------- | -------------------------------------------------- | -------- | --------------------------------------- |
-| Apache ActiveMQ | https://activemq.apache.org                        | all      | MQTT, AMQP, STOMP - on premises hosting |
+| Cloud Service   | Link                        | Language | Usage                                   |
+| --------------- | --------------------------- | -------- | --------------------------------------- |
+| Apache ActiveMQ | https://activemq.apache.org | all      | MQTT, AMQP, STOMP - on premises hosting |
 
 ## Recommended docker / container base images
 
