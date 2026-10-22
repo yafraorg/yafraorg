@@ -5,40 +5,40 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
-  return tags.map((tag) => ({
-    params: { id: tag },
-    props: {
-      tag,
-      posts: posts.filter((post) => post.data.tags?.includes(tag)),
-    },
-  }));
+   const posts = await getCollection("blog");
+   const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
+   return tags.map((tag) => ({
+      params: { id: tag },
+      props: {
+         tag,
+         posts: posts.filter((post) => post.data.tags?.includes(tag)),
+      },
+   }));
 }
 const { tag, posts } = Astro.props;
 type Post = CollectionEntry<"blog">;
 ---
 
 <Base
-  title={`Posts tagged with ${tag}`}
-  description={`Posts tagged with ${tag}.`}
+   title={`Posts tagged with ${tag}`}
+   description={`Posts tagged with ${tag}.`}
 >
-  <div class="container py-5">
-    <section class="card prose">
-      <h1>
-        Posts tagged with <span class="badge">#{tag}</span>
-      </h1>
-      <ul class="list-group post-list">
-        {posts.map((post: Post) => (
-          <li class="list-group-item">
-            <FormattedDate date={post.data.pubDate} />
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
-          </li>
-        ))}
-      </ul>
-      <p class="mt-4 mb-0">
-        <a href="/tags">All tags</a>
-      </p>
-    </section>
-  </div>
+   <div class="container py-5">
+      <section class="card prose">
+         <h1>
+            Posts tagged with <span class="badge">#{tag}</span>
+         </h1>
+         <ul class="list-group post-list">
+            {posts.map((post: Post) => (
+               <li class="list-group-item">
+                  <FormattedDate date={post.data.pubDate} />
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+               </li>
+            ))}
+         </ul>
+         <p class="mt-4 mb-0">
+            <a href="/tags">All tags</a>
+         </p>
+      </section>
+   </div>
 </Base>

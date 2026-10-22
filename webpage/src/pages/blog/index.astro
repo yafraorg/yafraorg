@@ -6,44 +6,44 @@ import FormattedDate from "@components/FormattedDate.astro";
 type Post = CollectionEntry<"blog">;
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const postByYear: {
-  [year: number]: Post[];
+   [year: number]: Post[];
 } = {};
 
 posts.forEach((post) => {
-  const year = post.data.pubDate.getFullYear();
-  if (!postByYear[year]) {
-    postByYear[year] = [];
-  }
-  postByYear[year].push(post);
+   const year = post.data.pubDate.getFullYear();
+   if (!postByYear[year]) {
+      postByYear[year] = [];
+   }
+   postByYear[year].push(post);
 });
 ---
 
 <Base title="Blog" description="Articles from yafra.org">
-  <div class="container py-5">
-    <article class="card prose">
-      <header class="mb-4">
-        <h1>Blog</h1>
-        <p class="lead mb-0">Articles from yafra.org</p>
-      </header>
-      {Object.keys(postByYear)
-        .sort((a, b) => parseInt(b) - parseInt(a))
-        .map((year) => (
-          <section id={year}>
-            <h2>{year}</h2>
-            <ul class="list-group post-list">
-              {postByYear[parseInt(year)]?.map((post: Post) => (
-                <li class="list-group-item">
-                  <FormattedDate date={post.data.pubDate} />
-                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-    </article>
-  </div>
+   <div class="container py-5">
+      <article class="card prose">
+         <header class="mb-4">
+            <h1>Blog</h1>
+            <p class="lead mb-0">Articles from yafra.org</p>
+         </header>
+         {Object.keys(postByYear)
+            .sort((a, b) => parseInt(b) - parseInt(a))
+            .map((year) => (
+               <section id={year}>
+                  <h2>{year}</h2>
+                  <ul class="list-group post-list">
+                     {postByYear[parseInt(year)]?.map((post: Post) => (
+                        <li class="list-group-item">
+                           <FormattedDate date={post.data.pubDate} />
+                           <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                        </li>
+                     ))}
+                  </ul>
+               </section>
+            ))}
+      </article>
+   </div>
 </Base>

@@ -2,18 +2,18 @@
 import TagLink from "@components/TagLink.astro";
 
 type Props = {
-  tags: string[];
+   tags: string[];
 };
 
 const { tags } = Astro.props;
 ---
 
 <nav aria-label="Tags">
-  <ul class="tag-list">
-    {tags.map((tag) => (
-      <li>
-        <TagLink tag={tag} />
-      </li>
-    ))}
-  </ul>
+   <ul class="tag-list">
+      {tags.map((tag) => (
+         <li>
+            <TagLink tag={tag} />
+         </li>
+      ))}
+   </ul>
 </nav>

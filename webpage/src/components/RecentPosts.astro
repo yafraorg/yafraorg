@@ -3,28 +3,28 @@ import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const maxPostsToDisplay = 3;
 const recentPosts = posts.slice(0, maxPostsToDisplay);
 ---
 
 <section class="mt-5" aria-labelledby="recent-posts">
-  <h2 id="recent-posts">Recent posts</h2>
-  <div class="row">
-    {recentPosts.map((post) => (
-      <article class="card col-md-4">
-        <h3 class="card-title">
-          <a href={`/blog/${post.id}`}>{post.data.title}</a>
-        </h3>
-        <p class="small text-muted mb-2">
-          <FormattedDate date={post.data.pubDate} />
-        </p>
-        <p class="card-text">{post.data.description}</p>
-      </article>
-    ))}
-  </div>
-  <p class="mt-4 mb-0">
-    <a href="/blog">All posts</a>
-  </p>
+   <h2 id="recent-posts">Recent posts</h2>
+   <div class="row">
+      {recentPosts.map((post) => (
+         <article class="card col-md-4">
+            <h3 class="card-title">
+               <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            </h3>
+            <p class="small text-muted mb-2">
+               <FormattedDate date={post.data.pubDate} />
+            </p>
+            <p class="card-text">{post.data.description}</p>
+         </article>
+      ))}
+   </div>
+   <p class="mt-4 mb-0">
+      <a href="/blog">All posts</a>
+   </p>
 </section>

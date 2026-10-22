@@ -3,8 +3,8 @@ title: Curated development tools
 description: A set of selected frameworks to build your next solution
 pubDate: 2025-02-08
 tags:
-  - tools
-  - intro
+   - tools
+   - intro
 ---
 
 # List of selected libraries, frameworks, runtimes, ...
