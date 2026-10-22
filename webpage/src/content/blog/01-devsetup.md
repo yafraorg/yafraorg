@@ -23,6 +23,7 @@ NodeJS is an efficient way to develop and run applications. It is used as develo
 
 | Framework | Link                 | Language   | Usage     | Overview                   |
 | --------- | -------------------- | ---------- | --------- | -------------------------- |
+| NodeJS    | https://nodejs.org   | Javascript | Runtime   |  |
 | Astro     | https://astro.build  | Typescript | Web pages | Static web page generation |
 | Alpine.js | https://alpinejs.dev | Typescript | SPA       | Simple UI                  |
 | Angular   | https://angular.dev  | Typescript | SPA       | Enterprise UI Framework    |
@@ -37,17 +38,19 @@ Python is an easy to learn and extremly versatile programming language. It can b
 
 | Framework | Link                                       | Language | Usage       | Overview                                 |
 | --------- | ------------------------------------------ | -------- | ----------- | ---------------------------------------- |
+| Python    | https://www.python.org                     | Python   | Runtime     |  |
 | FastAPI   | https://fastapi.tiangolo.com               | Python   | Backend API | RESTful API, GraphQL, ORM SQLAlchemy, .. |
-| PySide    | https://doc.qt.io/qtforpython-6/index.html | Python   | Fat Clients | MacOS, Linux, Windows based on Qt        |
 | Rich      | https://github.com/Textualize/rich         | Python   | CLI         | ASCII UI                                 |
 
 It is convinient to use a manager software to switch between the python versions. [uv](https://github.com/astral-sh/uv) is recommended.
 
 ### .Net / C#
 
+Dotnet is highly efficient and best for enterprise grade server-side and client-side applications. You will find further information in the [dotnet instruction](/devdoc/instructions/csharp-dotnet-instructions/).
+
 | Framework   | Link                         | Language | Usage       | Overview         |
 | ----------- | ---------------------------- | -------- | ----------- | ---------------- |
-| .NET Core   | https://dotnet.microsoft.com | C#       | Backend API | RESTful API, ORM |
+| .NET Core   | https://dotnet.microsoft.com | C#       | Runtime     |  |
 | Avalonia UI | https://dotnet.microsoft.com | C#       | Backend API | RESTful API, ORM |
 
 ### Embedded and Home devices
@@ -65,9 +68,7 @@ SQLlite is preferred for local and simple setups. You do not even need a server 
 | -------------- | ----------------------------------------------------- | -------- | --------------------------------------- |
 | MariaDB        | https://mariadb.org                                   | all      | Transactional data and queries, SQL     |
 | SQLlite        | https://www.sqlite.org                                | all      | Small and in-memory database, SQL       |
-| MongoDB        | https://www.mongodb.com                               | all      | Document oriented, transactions, NO-SQL |
 | Redis          | https://redis.io                                      | all      | In-Memory, speed in mind, NO-SQL        |
-| Azure Datalake | https://azure.microsoft.com/en-us/solutions/data-lake | all      | Lakehouse storage                       |
 
 ## Recommended AI frameworks
 
@@ -84,7 +85,6 @@ To store sensor or machine data the MQTT protocol is preferred.
 
 | Cloud Service   | Link                                               | Language | Usage                                   |
 | --------------- | -------------------------------------------------- | -------- | --------------------------------------- |
-| Azure IoT       | https://azure.microsoft.com/en-us/products/iot-hub | all      | IoT with MQTT - cloud based             |
 | Apache ActiveMQ | https://activemq.apache.org                        | all      | MQTT, AMQP, STOMP - on premises hosting |
 
 ## Recommended docker / container base images
